@@ -1,103 +1,154 @@
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Clone</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #202020;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff0000;
+            margin-right: 20px;
+        }
+
+        header input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        header button {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 240px;
+            background-color: #f9f9f9;
+            position: fixed;
+            top: 50px;
+            bottom: 0;
+            overflow-y: auto;
+            padding: 10px 0;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .sidebar a:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 240px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .video-card:hover {
+            transform: scale(1.05);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .video-card .info {
+            padding: 10px;
+        }
+
+        .video-card .info h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .video-card .info p {
+            margin: 5px 0 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .add-video {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-video input, .add-video button {
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        .add-video input {
+            width: calc(100% - 20px);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .add-video button {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .add-video button:hover {
+            background-color: #e60000;
+        }
+    </style>
+</head>
 <body>
 
     <!-- Header -->
