@@ -1,0 +1,198 @@
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">YouTube Clone</div>
+        <input type="text" placeholder="Search">
+        <button>Search</button>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#">Home</a>
+        <a href="#">Trending</a>
+        <a href="#">Subscriptions</a>
+        <a href="#">Library</a>
+        <a href="#">History</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Add Video Form -->
+        <div class="add-video">
+            <h3>Add a New Video</h3>
+            <input type="text" id="video-title" placeholder="Video Title">
+            <input type="text" id="video-channel" placeholder="Channel Name">
+            <input type="text" id="video-thumbnail" placeholder="Thumbnail URL">
+            <button onclick="addVideo()">Add Video</button>
+        </div>
+
+        <!-- Video Grid -->
+        <div class="video-grid" id="video-grid">
+            <!-- Video Card 1 -->
+            <div class="video-card">
+                <img src="https://via.placeholder.com/300x170" alt="Video Thumbnail">
+                <div class="info">
+                    <h3>Video Title 1</h3>
+                    <p>Channel Name</p>
+                </div>
+            </div>
+
+            <!-- Video Card 2 -->
+            <div class="video-card">
+                <img src="https://via.placeholder.com/300x170" alt="Video Thumbnail">
+                <div class="info">
+                    <h3>Video Title 2</h3>
+                    <p>Channel Name</p>
+                </div>
+            </div>
+
+            <!-- Video Card 3 -->
+            <div class="video-card">
+                <img src="https://via.placeholder.com/300x170" alt="Video Thumbnail">
+                <div class="info">
+                    <h3>Video Title 3</h3>
+                    <p>Channel Name</p>
+                </div>
+            </div>
+
+            <!-- Add more video cards as needed -->
+        </div>
+    </div>
+
+    <script>
+        function addVideo() {
+            const title = document.getElementById('video-title').value;
+            const channel = document.getElementById('video-channel').value;
+            const thumbnail = document.getElementById('video-thumbnail').value;
+
+            if (title && channel && thumbnail) {
+                const videoGrid = document.getElementById('video-grid');
+
+                // Create a new video card
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+
+                videoCard.innerHTML = `
+                    <img src="${thumbnail}" alt="Video Thumbnail">
+                    <div class="info">
+                        <h3>${title}</h3>
+                        <p>${channel}</p>
+                    </div>
+                `;
+
+                // Add the video card to the grid
+                videoGrid.appendChild(videoCard);
+
+                // Clear input fields
+                document.getElementById('video-title').value = '';
+                document.getElementById('video-channel').value = '';
+                document.getElementById('video-thumbnail').value = '';
+            } else {
+                alert('Please fill out all fields!');
+            }
+        }
+    </script>
+
+</body>
+</html>
